@@ -22,9 +22,11 @@ namespace Diplom_Maksim
             try
             {
                 if (Static.user != "Гость")
+                {
+                    int a = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
                     if (((DataGridView)sender).Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
                     {
-                        int a = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+
                         if (MessageBox.Show("Удалить эту строку " + a, "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                             DialogResult.Yes)
                         {
@@ -43,8 +45,21 @@ namespace Diplom_Maksim
                                 }
 
                         }
-                        otkritie();
+                        
                     }
+                    else
+                    {
+                        string name = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        Enabled = false;
+                        if (name != null)
+                        {
+                            Form6 f = new Form6(a, name, "Fakultet");
+                            f.FormClosed += SecondForm6_FormClosed;
+                            f.Show();
+                        }
+                    }
+                    otkritie();
+            }
             }
             catch
             {
@@ -52,8 +67,19 @@ namespace Diplom_Maksim
             }
         }
 
+        private void SecondForm6_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // Активируем главную форму обратно
+            Enabled = true;
+
+            // Отписываемся от события
+            Form6 secondForm = (Form6)sender;
+            secondForm.FormClosed -= SecondForm6_FormClosed;
+        }
+
         private void Form4_Load(object sender, EventArgs e)
         {
+            dataGridView1.ReadOnly = true;
             dataGridView1.Font = new Font("Microsoft Sans Serif", 14);
             otkritie();
         }

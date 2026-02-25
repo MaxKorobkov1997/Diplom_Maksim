@@ -75,42 +75,42 @@ namespace Diplom_Maksim
             try
             {
                 int a = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-                //if (Static.user != "Гость")
-                //{
-                if (((DataGridView)sender).Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+                if (Static.user != "Гость")
                 {
+                    if (((DataGridView)sender).Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+                    {
 
-                    if (MessageBox.Show("Удалить эту строку " + a, "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                        if (MessageBox.Show("Удалить эту строку " + a, "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                            DialogResult.Yes)
+                        {
+                            Delit.Delit_student(a);
+                            if (MessageBox.Show("Удалить эту строку " + a + " в таблице журнал", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                         DialogResult.Yes)
-                    {
-                        Delit.Delit_student(a);
-                        if (MessageBox.Show("Удалить эту строку " + a + " в таблице журнал", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
-                    DialogResult.Yes)
-                            while (true)
-                            {
-                                using (var context = new DBpodkl())
+                                while (true)
                                 {
-                                    var users1 = context.Jurnals.Where(o => o.Id_Neme == a).FirstOrDefault();
-                                    if (users1 == null)
-                                        break;
-                                    Delit.Delit_jurnal(users1.Id);
+                                    using (var context = new DBpodkl())
+                                    {
+                                        var users1 = context.Jurnals.Where(o => o.Id_Neme == a).FirstOrDefault();
+                                        if (users1 == null)
+                                            break;
+                                        Delit.Delit_jurnal(users1.Id);
+                                    }
                                 }
-                            }
+                        }
                     }
-
-                }
-                else
-                {
-                    string name = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-                    Enabled = false;
-                    if (name != null)
+                    else
                     {
-                        Form6 f = new Form6(a, name, "fakultet");
-                        f.FormClosed += SecondForm6_FormClosed;
-                        f.Show();
+                        string name = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        Enabled = false;
+                        if (name != null)
+                        {
+                            Form6 f = new Form6(a, name, "Student");
+                            f.FormClosed += SecondForm6_FormClosed;
+                            f.Show();
+                        }
                     }
+                    otkritie();
                 }
-                otkritie();
             }
             catch
             {
@@ -129,6 +129,7 @@ namespace Diplom_Maksim
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            dataGridView1.ReadOnly = true;
             dataGridView1.Font = new Font("Microsoft Sans Serif", 14);
             otkritie();
         }

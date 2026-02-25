@@ -56,6 +56,7 @@ namespace Diplom_Maksim
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(786, 483);
             dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // label1
             // 
@@ -173,10 +174,7 @@ namespace Diplom_Maksim
             PerformLayout();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
+        
 
         private DataGridView dataGridView1;
         public System.Windows.Forms.Label label1;

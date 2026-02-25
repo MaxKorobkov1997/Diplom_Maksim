@@ -29,7 +29,7 @@ namespace Diplom_Maksim
         {
             switch (table)
             {
-                case "fakultet":
+                case "Student":
                     name = name1.Split();
                     Label label1 = new Label
                     {
@@ -89,6 +89,48 @@ namespace Diplom_Maksim
                     Controls.Add(textBox3);
                     Controls.Add(label3);
                     break;
+                case "Fakultet":
+                    Label label4 = new Label
+                    {
+                        AutoSize = true,
+                        Location = new Point(10, 20),
+                        Margin = new Padding(2, 0, 2, 0),
+                        Name = "label3",
+                        Size = new Size(65, 13),
+                        TabIndex = 28,
+                        Font = font,
+                        Text = "Факультет"
+                    };
+                    textBox1 = new System.Windows.Forms.TextBox
+                    {
+                        Location = new Point(110, 20),
+                        Text = name1,
+                        Font = font,
+                    };
+                    Controls.Add(label4);
+                    Controls.Add(textBox1);
+                    break;
+                case "Vid_Gr":
+                    Label label5 = new Label
+                    {
+                        AutoSize = true,
+                        Location = new Point(10, 20),
+                        Margin = new Padding(2, 0, 2, 0),
+                        Name = "label3",
+                        Size = new Size(65, 13),
+                        TabIndex = 28,
+                        Font = font,
+                        Text = "Вид группы"
+                    };
+                    textBox1 = new System.Windows.Forms.TextBox
+                    {
+                        Location = new Point(110, 20),
+                        Text = name1,
+                        Font = font,
+                    };
+                    Controls.Add(label5);
+                    Controls.Add(textBox1);
+                    break;
             }
             System.Windows.Forms.Button button1 = new System.Windows.Forms.Button
             {
@@ -102,9 +144,15 @@ namespace Diplom_Maksim
         {
             switch (table)
             {
-                case "fakultet":
+                case "Student":
                     string fio = textBox1.Text + " " + textBox2.Text + " " + textBox3.Text;
                     Redactirov.relact_Student(id, fio);
+                    break;
+                case "Fakultet":
+                    Redactirov.relact_Fakultet(id, textBox1.Text);
+                    break;
+                case "Vid_Gr":
+                    Redactirov.relact_Vid_Gr(id, textBox1.Text);
                     break;
             }
         }

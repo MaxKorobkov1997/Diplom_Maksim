@@ -14,6 +14,7 @@ namespace Diplom_Maksim
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            dataGridView1.ReadOnly = true;
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
             label1.Text = Static.user;
@@ -65,9 +66,9 @@ namespace Diplom_Maksim
         {
             try
             {
-                comboBox3.Items.Clear();
-                comboBox1.Items.Clear();
-                comboBox2.Items.Clear();
+                //comboBox3.Items.Clear();
+                //comboBox1.Items.Clear();
+                //comboBox2.Items.Clear();
                 comboBox1.DataSource = otkritie_tb.otk_student();
                 comboBox1.ValueMember = "Id";
                 comboBox1.DisplayMember = "Name";
@@ -191,6 +192,29 @@ namespace Diplom_Maksim
             }
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                int a = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                if (Static.user != "Гость")
+                {
+                    if (((DataGridView)sender).Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+                    {
+
+                        if (MessageBox.Show("Удалить эту строку " + a, "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                            DialogResult.Yes)
+                            Delit.Delit_jurnal(a);
+                    }
+                    otkritie1();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ни првильный вопрос");
+            }
+        }
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
             SearchAndHighlightRows(textBox1.Text);
@@ -239,7 +263,7 @@ namespace Diplom_Maksim
 
                 if (foundInRow)
                 {
-                    row.Selected = true;
+                    //row.Selected = true;
                     row.Visible = true;
                 }
                 else
