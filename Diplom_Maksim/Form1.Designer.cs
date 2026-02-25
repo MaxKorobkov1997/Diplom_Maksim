@@ -98,6 +98,7 @@ namespace Diplom_Maksim
             button1.TabIndex = 5;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
             // 
             // button2
             // 
@@ -105,8 +106,9 @@ namespace Diplom_Maksim
             button2.Name = "button2";
             button2.Size = new Size(158, 51);
             button2.TabIndex = 6;
-            button2.Text = "button2";
+            button2.Text = "Добавить факультет";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button3
             // 
@@ -114,8 +116,9 @@ namespace Diplom_Maksim
             button3.Name = "button3";
             button3.Size = new Size(158, 52);
             button3.TabIndex = 7;
-            button3.Text = "button3";
+            button3.Text = "Добавить вид группы";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button4
             // 
@@ -125,6 +128,7 @@ namespace Diplom_Maksim
             button4.TabIndex = 8;
             button4.Text = "Добавить студента";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button5
             // 
@@ -134,6 +138,7 @@ namespace Diplom_Maksim
             button5.TabIndex = 9;
             button5.Text = "Войти";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // textBox1
             // 
@@ -142,12 +147,13 @@ namespace Diplom_Maksim
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(761, 99);
             textBox1.TabIndex = 10;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1155, 611);
+            ClientSize = new Size(1025, 611);
             Controls.Add(textBox1);
             Controls.Add(button5);
             Controls.Add(button4);
@@ -161,6 +167,7 @@ namespace Diplom_Maksim
             Controls.Add(dataGridView1);
             Name = "Form1";
             Text = "Form1";
+            Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
