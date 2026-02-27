@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -13,9 +14,16 @@ namespace Diplom_Maksim
     public partial class Form2 : Form
     {
         string pathpasp, pathsoclic, pasp, soclic;
+
+        [DllImport("user32.dll")]
+        private static extern bool ReleaseCapture();
+
+        [DllImport("user32.dll")]
+        private static extern bool SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         public Form2()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.None;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -74,7 +82,8 @@ namespace Diplom_Maksim
         {
             try
             {
-                int a = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                string id = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                int a = Convert.ToInt32(id);
                 if (Static.user != "Гость")
                 {
                     if (((DataGridView)sender).Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
@@ -100,7 +109,7 @@ namespace Diplom_Maksim
                     }
                     else
                     {
-                        string name = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                        string name = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
                         Enabled = false;
                         if (name != null)
                         {
@@ -152,6 +161,22 @@ namespace Diplom_Maksim
                 soclic = Path.GetFileName(openFileDialog.FileName);
                 pathsoclic = openFileDialog.FileName;
             }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(Handle, 0x112, 0xf012, 0);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

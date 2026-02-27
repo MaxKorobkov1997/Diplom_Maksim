@@ -1,5 +1,6 @@
 using diplom;
 using diplom.Database_management;
+using System.Runtime.InteropServices;
 
 namespace Diplom_Maksim
 {
@@ -9,21 +10,33 @@ namespace Diplom_Maksim
 
         public Form1()
         {
+            FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
         }
+
+        [DllImport("user32.dll")]
+        private static extern bool ReleaseCapture();
+
+        [DllImport("user32.dll")]
+        private static extern bool SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridView1.ReadOnly = true;
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
-            label1.Text = Static.user;
             Combobox();
             otkritie1();
             dataGridView1.Font = new Font("Microsoft Sans Serif", 14);
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
+        private void Panel1_MouseDown(object? sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(Handle, 0x112, 0xf012, 0);
         }
 
         private void otkritie1()
@@ -148,23 +161,6 @@ namespace Diplom_Maksim
             otkritie1();
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            Enabled = false;
-
-            Form5 f = new Form5(this);
-            f.FormClosed += SecondForm5_FormClosed;
-            f.Show();
-        }
-        private void SecondForm5_FormClosed(object? sender, FormClosedEventArgs e)
-        {
-            Enabled = true;
-
-            // Отписываемся от события
-            Form5 secondForm = (Form5)sender;
-            secondForm.FormClosed -= SecondForm5_FormClosed;
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
             try
@@ -271,6 +267,16 @@ namespace Diplom_Maksim
                     row.Visible = false;
                 }
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

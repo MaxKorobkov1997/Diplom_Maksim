@@ -30,30 +30,28 @@ namespace Diplom_Maksim
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             textBox1 = new TextBox();
             button1 = new Button();
             label1 = new Label();
-            shapka1 = new shapka(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(11, 28);
+            dataGridView1.Location = new Point(11, 33);
             dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 24;
-            dataGridView1.Size = new Size(385, 327);
+            dataGridView1.Size = new Size(761, 473);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellClick;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(408, 52);
+            textBox1.Location = new Point(806, 157);
             textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(169, 23);
@@ -61,7 +59,7 @@ namespace Diplom_Maksim
             // 
             // button1
             // 
-            button1.Location = new Point(408, 86);
+            button1.Location = new Point(806, 191);
             button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(168, 49);
@@ -73,7 +71,7 @@ namespace Diplom_Maksim
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(406, 28);
+            label1.Location = new Point(804, 133);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(63, 15);
@@ -84,7 +82,7 @@ namespace Diplom_Maksim
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(645, 395);
+            ClientSize = new Size(1025, 658);
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(textBox1);
@@ -103,6 +101,5 @@ namespace Diplom_Maksim
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
-        private shapka shapka1;
     }
 }

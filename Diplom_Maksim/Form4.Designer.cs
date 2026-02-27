@@ -38,7 +38,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(406, 11);
+            label1.Location = new Point(801, 101);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(71, 15);
@@ -47,7 +47,7 @@
             // 
             // button1
             // 
-            button1.Location = new Point(406, 132);
+            button1.Location = new Point(801, 222);
             button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(168, 49);
@@ -58,7 +58,7 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(406, 98);
+            textBox1.Location = new Point(801, 188);
             textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(169, 23);
@@ -67,12 +67,12 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(11, 11);
+            dataGridView1.Location = new Point(21, 44);
             dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 24;
-            dataGridView1.Size = new Size(385, 327);
+            dataGridView1.Size = new Size(696, 327);
             dataGridView1.TabIndex = 7;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
@@ -80,7 +80,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(612, 368);
+            ClientSize = new Size(1025, 658);
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(textBox1);

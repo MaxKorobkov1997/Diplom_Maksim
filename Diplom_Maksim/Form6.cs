@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Runtime.Intrinsics.Arm;
 using System.Text;
 using System.Windows.Forms;
@@ -17,8 +18,16 @@ namespace Diplom_Maksim
         string[] name;
         string name1, table;
         TextBox textBox1, textBox2, textBox3;
+
+        [DllImport("user32.dll")]
+        private static extern bool ReleaseCapture();
+
+        [DllImport("user32.dll")]
+        private static extern bool SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         public Form6(int id1, string name2, string tab)
         {
+            FormBorderStyle = FormBorderStyle.None;
             id = id1;
             name1 = name2;
             table = tab;
@@ -27,6 +36,8 @@ namespace Diplom_Maksim
 
         private void Form6_Load(object sender, EventArgs e)
         {
+            button6.Text = "X";
+            button7.Text = "_"; 
             switch (table)
             {
                 case "Student":
@@ -155,6 +166,23 @@ namespace Diplom_Maksim
                     Redactirov.relact_Vid_Gr(id, textBox1.Text);
                     break;
             }
+            Close();
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(Handle, 0x112, 0xf012, 0);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

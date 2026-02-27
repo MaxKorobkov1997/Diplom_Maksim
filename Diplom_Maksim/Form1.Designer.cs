@@ -33,9 +33,7 @@ namespace Diplom_Maksim
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
-            label1 = new System.Windows.Forms.Label();
             comboBox1 = new System.Windows.Forms.ComboBox();
             comboBox2 = new System.Windows.Forms.ComboBox();
             comboBox3 = new System.Windows.Forms.ComboBox();
@@ -43,34 +41,23 @@ namespace Diplom_Maksim
             button2 = new System.Windows.Forms.Button();
             button3 = new System.Windows.Forms.Button();
             button4 = new System.Windows.Forms.Button();
-            button5 = new System.Windows.Forms.Button();
             textBox1 = new System.Windows.Forms.TextBox();
-            shapka1 = new diplom.shapka(components);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Location = new Point(12, 47);
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(786, 483);
+            dataGridView1.Size = new Size(786, 416);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(801, 20);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
             // 
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(855, 341);
+            comboBox1.Location = new Point(838, 292);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(121, 23);
             comboBox1.TabIndex = 2;
@@ -78,7 +65,7 @@ namespace Diplom_Maksim
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(855, 393);
+            comboBox2.Location = new Point(838, 344);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(121, 23);
             comboBox2.TabIndex = 3;
@@ -86,24 +73,24 @@ namespace Diplom_Maksim
             // comboBox3
             // 
             comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(855, 445);
+            comboBox3.Location = new Point(838, 396);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(121, 23);
             comboBox3.TabIndex = 4;
             // 
             // button1
             // 
-            button1.Location = new Point(845, 510);
+            button1.Location = new Point(828, 461);
             button1.Name = "button1";
             button1.Size = new Size(158, 63);
             button1.TabIndex = 5;
-            button1.Text = "button1";
+            button1.Text = "Добавить";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
             // 
             // button2
             // 
-            button2.Location = new Point(845, 182);
+            button2.Location = new Point(828, 133);
             button2.Name = "button2";
             button2.Size = new Size(158, 51);
             button2.TabIndex = 6;
@@ -113,7 +100,7 @@ namespace Diplom_Maksim
             // 
             // button3
             // 
-            button3.Location = new Point(845, 250);
+            button3.Location = new Point(828, 201);
             button3.Name = "button3";
             button3.Size = new Size(158, 52);
             button3.TabIndex = 7;
@@ -123,7 +110,7 @@ namespace Diplom_Maksim
             // 
             // button4
             // 
-            button4.Location = new Point(845, 96);
+            button4.Location = new Point(828, 47);
             button4.Name = "button4";
             button4.Size = new Size(158, 63);
             button4.TabIndex = 8;
@@ -131,19 +118,9 @@ namespace Diplom_Maksim
             button4.UseVisualStyleBackColor = true;
             button4.Click += button4_Click;
             // 
-            // button5
-            // 
-            button5.Location = new Point(845, 12);
-            button5.Name = "button5";
-            button5.Size = new Size(97, 40);
-            button5.TabIndex = 9;
-            button5.Text = "Войти";
-            button5.UseVisualStyleBackColor = true;
-            button5.Click += button5_Click;
-            // 
             // textBox1
             // 
-            textBox1.Location = new Point(12, 489);
+            textBox1.Location = new Point(12, 492);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(761, 99);
@@ -154,9 +131,8 @@ namespace Diplom_Maksim
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1025, 611);
+            ClientSize = new Size(1025, 658);
             Controls.Add(textBox1);
-            Controls.Add(button5);
             Controls.Add(button4);
             Controls.Add(button3);
             Controls.Add(button2);
@@ -164,7 +140,6 @@ namespace Diplom_Maksim
             Controls.Add(comboBox3);
             Controls.Add(comboBox2);
             Controls.Add(comboBox1);
-            Controls.Add(label1);
             Controls.Add(dataGridView1);
             Name = "Form1";
             Text = "Form1";
@@ -174,10 +149,9 @@ namespace Diplom_Maksim
             PerformLayout();
         }
 
-        
+
 
         private DataGridView dataGridView1;
-        public System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
@@ -185,12 +159,9 @@ namespace Diplom_Maksim
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBox1;
         private int button1_Click;
 
         #endregion
-
-        private diplom.shapka shapka1;
     }
 }

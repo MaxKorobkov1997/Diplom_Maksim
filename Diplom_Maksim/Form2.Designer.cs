@@ -30,7 +30,6 @@ namespace Diplom_Maksim
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             dataGridView1 = new DataGridView();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
@@ -39,7 +38,6 @@ namespace Diplom_Maksim
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            shapka1 = new shapka(components);
             button2 = new Button();
             button3 = new Button();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
@@ -48,18 +46,18 @@ namespace Diplom_Maksim
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(1, 32);
+            dataGridView1.Location = new Point(11, 66);
             dataGridView1.Margin = new Padding(2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.RowTemplate.Height = 24;
-            dataGridView1.Size = new Size(394, 323);
+            dataGridView1.Size = new Size(651, 464);
             dataGridView1.TabIndex = 0;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(408, 49);
+            textBox1.Location = new Point(723, 190);
             textBox1.Margin = new Padding(2);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(76, 23);
@@ -67,7 +65,7 @@ namespace Diplom_Maksim
             // 
             // textBox2
             // 
-            textBox2.Location = new Point(500, 49);
+            textBox2.Location = new Point(815, 190);
             textBox2.Margin = new Padding(2);
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(76, 23);
@@ -75,7 +73,7 @@ namespace Diplom_Maksim
             // 
             // textBox3
             // 
-            textBox3.Location = new Point(597, 49);
+            textBox3.Location = new Point(912, 190);
             textBox3.Margin = new Padding(2);
             textBox3.Name = "textBox3";
             textBox3.Size = new Size(76, 23);
@@ -83,7 +81,7 @@ namespace Diplom_Maksim
             // 
             // button1
             // 
-            button1.Location = new Point(411, 264);
+            button1.Location = new Point(726, 405);
             button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(264, 54);
@@ -95,7 +93,7 @@ namespace Diplom_Maksim
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(408, 32);
+            label1.Location = new Point(723, 173);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(58, 15);
@@ -105,7 +103,7 @@ namespace Diplom_Maksim
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(498, 32);
+            label2.Location = new Point(813, 173);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(31, 15);
@@ -115,7 +113,7 @@ namespace Diplom_Maksim
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(595, 32);
+            label3.Location = new Point(910, 173);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(58, 15);
@@ -124,7 +122,7 @@ namespace Diplom_Maksim
             // 
             // button2
             // 
-            button2.Location = new Point(411, 96);
+            button2.Location = new Point(726, 237);
             button2.Name = "button2";
             button2.Size = new Size(264, 51);
             button2.TabIndex = 8;
@@ -134,7 +132,7 @@ namespace Diplom_Maksim
             // 
             // button3
             // 
-            button3.Location = new Point(411, 169);
+            button3.Location = new Point(726, 310);
             button3.Name = "button3";
             button3.Size = new Size(262, 50);
             button3.TabIndex = 9;
@@ -146,7 +144,7 @@ namespace Diplom_Maksim
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1025, 658);
             Controls.Add(button3);
             Controls.Add(button2);
             Controls.Add(label3);
@@ -172,9 +170,9 @@ namespace Diplom_Maksim
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private shapka shapka1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
+
         #endregion
     }
 }
