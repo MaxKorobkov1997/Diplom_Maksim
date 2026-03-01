@@ -20,6 +20,8 @@ namespace Diplom_Maksim
         [DllImport("user32.dll")]
         private static extern bool SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
+        List<Fakultet> fakultets;
+
         public Form3()
         {
             InitializeComponent();
@@ -55,8 +57,9 @@ namespace Diplom_Maksim
         {
             try
             {
+                fakultets = otkritie_tb.otk_faculteet();
                 dataGridView1.Columns.Clear();
-                dataGridView1.DataSource = otkritie_tb.otk_faculteet();
+                dataGridView1.DataSource =fakultets;
                 DataGridViewButtonColumn newColumn = new DataGridViewButtonColumn();
                 newColumn.HeaderText = "Новый столбец"; // Заголовок
                 newColumn.Text = "Удалить";
@@ -77,7 +80,9 @@ namespace Diplom_Maksim
             {
                 if (Static.user != "Гость")
                 {
-                    int a = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    int id1 = e.RowIndex;
+                    string id = fakultets[id1].Id.ToString();
+                    int a = Convert.ToInt32(id);
                     if (((DataGridView)sender).Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
                     {
                         if (MessageBox.Show("Удалить эту строку " + a, "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
@@ -102,7 +107,7 @@ namespace Diplom_Maksim
                     }
                     else
                     {
-                        string name = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        string name = fakultets[a].Fakultets.ToString();
                         Enabled = false;
                         if (name != null)
                         {

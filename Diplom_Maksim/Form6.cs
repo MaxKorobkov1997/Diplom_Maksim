@@ -45,7 +45,7 @@ namespace Diplom_Maksim
                     Label label1 = new Label
                     {
                         AutoSize = true,
-                        Location = new Point(10, 20),
+                        Location = new Point(10, 40),
                         Margin = new Padding(2, 0, 2, 0),
                         Name = "label3",
                         Size = new Size(65, 13),
@@ -55,14 +55,14 @@ namespace Diplom_Maksim
                     };
                     textBox1 = new System.Windows.Forms.TextBox
                     {
-                        Location = new Point(110, 20),
+                        Location = new Point(110, 40),
                         Text = name[0],
                         Font = font,
                     };
                     Label label2 = new Label
                     {
                         AutoSize = true,
-                        Location = new Point(10, 50),
+                        Location = new Point(10, 70),
                         Margin = new Padding(2, 0, 2, 0),
                         Name = "label3",
                         Size = new Size(65, 13),
@@ -72,14 +72,14 @@ namespace Diplom_Maksim
                     };
                     textBox2 = new System.Windows.Forms.TextBox
                     {
-                        Location = new Point(110, 50),
+                        Location = new Point(110, 70),
                         Text = name[1],
                         Font = font,
                     };
                     Label label3 = new Label
                     {
                         AutoSize = true,
-                        Location = new Point(10, 80),
+                        Location = new Point(10, 100),
                         Margin = new Padding(2, 0, 2, 0),
                         Name = "label3",
                         Size = new Size(65, 13),
@@ -89,7 +89,7 @@ namespace Diplom_Maksim
                     };
                     textBox3 = new System.Windows.Forms.TextBox
                     {
-                        Location = new Point(110, 80),
+                        Location = new Point(110, 100),
                         Text = name[2],
                         Font = font,
                     };
@@ -104,7 +104,7 @@ namespace Diplom_Maksim
                     Label label4 = new Label
                     {
                         AutoSize = true,
-                        Location = new Point(10, 20),
+                        Location = new Point(10, 40),
                         Margin = new Padding(2, 0, 2, 0),
                         Name = "label3",
                         Size = new Size(65, 13),
@@ -114,7 +114,7 @@ namespace Diplom_Maksim
                     };
                     textBox1 = new System.Windows.Forms.TextBox
                     {
-                        Location = new Point(110, 20),
+                        Location = new Point(110, 40),
                         Text = name1,
                         Font = font,
                     };
@@ -125,7 +125,7 @@ namespace Diplom_Maksim
                     Label label5 = new Label
                     {
                         AutoSize = true,
-                        Location = new Point(10, 20),
+                        Location = new Point(10, 40),
                         Margin = new Padding(2, 0, 2, 0),
                         Name = "label3",
                         Size = new Size(65, 13),
@@ -135,7 +135,7 @@ namespace Diplom_Maksim
                     };
                     textBox1 = new System.Windows.Forms.TextBox
                     {
-                        Location = new Point(110, 20),
+                        Location = new Point(110, 40),
                         Text = name1,
                         Font = font,
                     };
@@ -145,7 +145,7 @@ namespace Diplom_Maksim
             }
             System.Windows.Forms.Button button1 = new System.Windows.Forms.Button
             {
-                Location = new Point(90, 110),
+                Location = new Point(90, 130),
                 Text = "Сохранить изменения",
             };
             Controls.Add(button1);

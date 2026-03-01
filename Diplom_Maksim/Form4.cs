@@ -1,5 +1,6 @@
 ﻿using diplom;
 using diplom.Database_management;
+using diplom.ta_ble;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,8 @@ namespace Diplom_Maksim
         [DllImport("user32.dll")]
         private static extern bool SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
+        List<Vid> vids;
+
         public Form4()
         {
             InitializeComponent();
@@ -31,7 +34,9 @@ namespace Diplom_Maksim
             {
                 if (Static.user != "Гость")
                 {
-                    int a = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString());
+                    int id1 = e.RowIndex;
+                    string id = vids[id1].Id.ToString();
+                    int a = Convert.ToInt32(id);
                     if (((DataGridView)sender).Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
                     {
 
@@ -57,7 +62,7 @@ namespace Diplom_Maksim
                     }
                     else
                     {
-                        string name = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        string name = vids[id1].vid.ToString();
                         Enabled = false;
                         if (name != null)
                         {
@@ -96,8 +101,9 @@ namespace Diplom_Maksim
         {
             try
             {
+                vids = otkritie_tb.otk_vidgr();
                 dataGridView1.Columns.Clear();
-                dataGridView1.DataSource = otkritie_tb.otk_vidgr();
+                dataGridView1.DataSource = vids;
                 DataGridViewButtonColumn newColumn = new DataGridViewButtonColumn();
                 newColumn.HeaderText = "Новый столбец"; // Заголовок
                 newColumn.Name = "newColumn"; // Название столбца

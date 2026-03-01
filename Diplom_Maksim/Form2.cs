@@ -1,5 +1,6 @@
 ﻿using diplom;
 using diplom.Database_management;
+using diplom.ta_ble;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +15,7 @@ namespace Diplom_Maksim
     public partial class Form2 : Form
     {
         string pathpasp, pathsoclic, pasp, soclic;
+        List<Student> student;
 
         [DllImport("user32.dll")]
         private static extern bool ReleaseCapture();
@@ -61,8 +63,9 @@ namespace Diplom_Maksim
         {
             try
             {
+                student = otkritie_tb.otk_student();
                 dataGridView1.Columns.Clear();
-                dataGridView1.DataSource = otkritie_tb.otk_student();
+                dataGridView1.DataSource = student;
                 DataGridViewButtonColumn newColumn = new DataGridViewButtonColumn();
                 newColumn.HeaderText = "Новый столбец"; // Заголовок
                 newColumn.Name = "newColumn"; // Название столбца
@@ -82,7 +85,8 @@ namespace Diplom_Maksim
         {
             try
             {
-                string id = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                int id1 = e.RowIndex;
+                string id = student[id1].Id.ToString();
                 int a = Convert.ToInt32(id);
                 if (Static.user != "Гость")
                 {
@@ -109,7 +113,7 @@ namespace Diplom_Maksim
                     }
                     else
                     {
-                        string name = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                        string name = student[id1].Name.ToString();
                         Enabled = false;
                         if (name != null)
                         {
