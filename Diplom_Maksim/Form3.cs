@@ -107,7 +107,7 @@ namespace Diplom_Maksim
                     }
                     else
                     {
-                        string name = fakultets[a].Fakultets.ToString();
+                        string name = fakultets[id1].Fakultets.ToString();
                         Enabled = false;
                         if (name != null)
                         {

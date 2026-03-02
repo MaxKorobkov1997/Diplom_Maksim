@@ -13,22 +13,17 @@ namespace Diplom_Maksim
 {
     public partial class Form5 : Form
     {
+        FormMainMtnu formMainMtnu;
 
-        [DllImport("user32.dll")]
-        private static extern bool ReleaseCapture();
-
-        [DllImport("user32.dll")]
-        private static extern bool SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-        public Form5()
+        public Form5(FormMainMtnu formMainMtnu)
         {
             FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
+            this.formMainMtnu = formMainMtnu;
         }
 
         private void Form5_Load(object sender, EventArgs e)
         {
-            button6.Text = "X";
-            button7.Text = "_"; 
             using (var context = new DBpodkl())
             {
                 int users = context.Users.Count();
@@ -47,6 +42,7 @@ namespace Diplom_Maksim
                 {
                     MessageBox.Show("Вы вошли");
                     Static.user = textBox1.Text;
+                    formMainMtnu.label1.Text = Static.user;
                     Close();
                 }
                 else
@@ -57,22 +53,6 @@ namespace Diplom_Maksim
         private void button2_Click(object sender, EventArgs e)
         {
             add_bd.Add_user(textBox1.Text, textBox2.Text);
-        }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, 0x112, 0xf012, 0);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
         }
     }
 }

@@ -1,19 +1,10 @@
 ﻿using diplom;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Diplom_Maksim
 {
     public partial class FormMainMtnu : Form
     {
-        Font font = new Font("Microsoft Sans Serif", 14);
-
         [DllImport("user32.dll")]
         private static extern bool ReleaseCapture();
 
@@ -28,13 +19,14 @@ namespace Diplom_Maksim
 
         private void FormMainMtnu_Load(object sender, EventArgs e)
         {
-            button1.Font = font;
-            button2.Font = font;
-            button3.Font = font;
-            button4.Font = font;
-            button5.Font = font;
-            button6.Font = font;
-            button7.Font = font;
+            label1.Font = Static.font;
+            button1.Font = Static.font;
+            button2.Font = Static.font;
+            button3.Font = Static.font;
+            button4.Font = Static.font;
+            button5.Font = Static.font;
+            button6.Font = Static.font;
+            button7.Font = Static.font;
             button6.Text = "X";
             button7.Text = "_";
             FormBorderStyle = FormBorderStyle.None;
@@ -93,21 +85,12 @@ namespace Diplom_Maksim
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Enabled = false;
-
-            Form5 f = new Form5();
-            f.FormClosed += SecondForm5_FormClosed;
-            f.Show();
-        }
-
-        private void SecondForm5_FormClosed(object? sender, FormClosedEventArgs e)
-        {
-            Enabled = true;
-
-            // Отписываемся от события
-            Form5 secondForm = (Form5)sender;
-            label1.Text = Static.user;
-            secondForm.FormClosed -= SecondForm5_FormClosed;
+            if ((sender as Button).Text == "Войти")
+            {
+                OpenChildForm(new Form5(this), sender);
+            }
+            else
+                (sender as Button).Text = "Войти";
         }
     }
 }

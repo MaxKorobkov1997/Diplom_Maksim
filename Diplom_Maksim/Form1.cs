@@ -14,12 +14,6 @@ namespace Diplom_Maksim
             InitializeComponent();
         }
 
-        [DllImport("user32.dll")]
-        private static extern bool ReleaseCapture();
-
-        [DllImport("user32.dll")]
-        private static extern bool SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
         private void Form1_Load(object sender, EventArgs e)
         {
             dataGridView1.ReadOnly = true;
@@ -27,16 +21,10 @@ namespace Diplom_Maksim
                 Directory.CreateDirectory(path);
             Combobox();
             otkritie1();
-            dataGridView1.Font = new Font("Microsoft Sans Serif", 14);
+            dataGridView1.Font = Static.font;
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
-        }
-
-        private void Panel1_MouseDown(object? sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, 0x112, 0xf012, 0);
         }
 
         private void otkritie1()
@@ -82,12 +70,15 @@ namespace Diplom_Maksim
                 //comboBox3.Items.Clear();
                 //comboBox1.Items.Clear();
                 //comboBox2.Items.Clear();
+                comboBox1.Font = Static.font;
                 comboBox1.DataSource = otkritie_tb.otk_student();
                 comboBox1.ValueMember = "Id";
                 comboBox1.DisplayMember = "Name";
+                comboBox2.Font = Static.font;
                 comboBox2.DataSource = otkritie_tb.otk_faculteet();
                 comboBox2.ValueMember = "Id";
                 comboBox2.DisplayMember = "Fakultets";
+                comboBox3.Font = Static.font;
                 comboBox3.DataSource = otkritie_tb.otk_vidgr();
                 comboBox3.ValueMember = "Id";
                 comboBox3.DisplayMember = "vid";
@@ -96,69 +87,6 @@ namespace Diplom_Maksim
             {
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK);
             }
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Enabled = false;
-
-            Form2 f = new Form2();
-            f.FormClosed += SecondForm2_FormClosed;
-            f.Show();
-        }
-
-        private void SecondForm2_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            // Активируем главную форму обратно
-            Enabled = true;
-
-            // Отписываемся от события
-            Form2 secondForm = (Form2)sender;
-            secondForm.FormClosed -= SecondForm2_FormClosed;
-            Combobox();
-            otkritie1();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Enabled = false;
-
-            Form3 f = new Form3();
-            f.FormClosed += SecondForm3_FormClosed;
-            f.Show();
-        }
-
-        private void SecondForm3_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            // Активируем главную форму обратно
-            Enabled = true;
-
-            // Отписываемся от события
-            Form3 secondForm = (Form3)sender;
-            secondForm.FormClosed -= SecondForm3_FormClosed;
-            Combobox();
-            otkritie1();
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            Enabled = false;
-
-            Form4 f = new Form4();
-            f.FormClosed += SecondForm4_FormClosed;
-            f.Show();
-        }
-
-        private void SecondForm4_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            // Активируем главную форму обратно
-            Enabled = true;
-
-            // Отписываемся от события
-            Form4 secondForm = (Form4)sender;
-            secondForm.FormClosed -= SecondForm4_FormClosed;
-            Combobox();
-            otkritie1();
         }
 
         private void button1_Click_1(object sender, EventArgs e)

@@ -38,9 +38,6 @@ namespace Diplom_Maksim
             comboBox2 = new System.Windows.Forms.ComboBox();
             comboBox3 = new System.Windows.Forms.ComboBox();
             button1 = new System.Windows.Forms.Button();
-            button2 = new System.Windows.Forms.Button();
-            button3 = new System.Windows.Forms.Button();
-            button4 = new System.Windows.Forms.Button();
             textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -57,73 +54,43 @@ namespace Diplom_Maksim
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(838, 292);
+            comboBox1.Location = new Point(821, 47);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
+            comboBox1.Size = new Size(192, 23);
             comboBox1.TabIndex = 2;
             // 
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(838, 344);
+            comboBox2.Location = new Point(821, 99);
             comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(121, 23);
+            comboBox2.Size = new Size(192, 23);
             comboBox2.TabIndex = 3;
             // 
             // comboBox3
             // 
             comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(838, 396);
+            comboBox3.Location = new Point(821, 151);
             comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(121, 23);
+            comboBox3.Size = new Size(192, 23);
             comboBox3.TabIndex = 4;
             // 
             // button1
             // 
-            button1.Location = new Point(828, 461);
+            button1.Location = new Point(821, 216);
             button1.Name = "button1";
-            button1.Size = new Size(158, 63);
+            button1.Size = new Size(192, 63);
             button1.TabIndex = 5;
             button1.Text = "Добавить";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(828, 133);
-            button2.Name = "button2";
-            button2.Size = new Size(158, 51);
-            button2.TabIndex = 6;
-            button2.Text = "Добавить факультет";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
-            // 
-            // button3
-            // 
-            button3.Location = new Point(828, 201);
-            button3.Name = "button3";
-            button3.Size = new Size(158, 52);
-            button3.TabIndex = 7;
-            button3.Text = "Добавить вид группы";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
-            // 
-            // button4
-            // 
-            button4.Location = new Point(828, 47);
-            button4.Name = "button4";
-            button4.Size = new Size(158, 63);
-            button4.TabIndex = 8;
-            button4.Text = "Добавить студента";
-            button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
             // 
             // textBox1
             // 
             textBox1.Location = new Point(12, 492);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
-            textBox1.Size = new Size(761, 99);
+            textBox1.Size = new Size(957, 99);
             textBox1.TabIndex = 10;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
@@ -133,9 +100,6 @@ namespace Diplom_Maksim
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1025, 658);
             Controls.Add(textBox1);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
             Controls.Add(button1);
             Controls.Add(comboBox3);
             Controls.Add(comboBox2);
@@ -156,9 +120,6 @@ namespace Diplom_Maksim
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.TextBox textBox1;
         private int button1_Click;
 
