@@ -142,6 +142,13 @@ namespace Diplom_Maksim
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            label1.Font = Static.font;
+            label2.Font = Static.font;
+            label3.Font = Static.font;
+            textBox1.Font = Static.font;
+            textBox2.Font = Static.font;
+            textBox3.Font = Static.font;
+            button1.Font = Static.font;
             dataGridView1.ReadOnly = true;
             dataGridView1.Font = new Font("Microsoft Sans Serif", 14);
             otkritie();

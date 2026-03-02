@@ -39,6 +39,9 @@ namespace Diplom_Maksim
             comboBox3 = new System.Windows.Forms.ComboBox();
             button1 = new System.Windows.Forms.Button();
             textBox1 = new System.Windows.Forms.TextBox();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -62,7 +65,7 @@ namespace Diplom_Maksim
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(821, 99);
+            comboBox2.Location = new Point(821, 121);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(192, 23);
             comboBox2.TabIndex = 3;
@@ -70,7 +73,7 @@ namespace Diplom_Maksim
             // comboBox3
             // 
             comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(821, 151);
+            comboBox3.Location = new Point(821, 189);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(192, 23);
             comboBox3.TabIndex = 4;
@@ -94,11 +97,44 @@ namespace Diplom_Maksim
             textBox1.TabIndex = 10;
             textBox1.TextChanged += textBox1_TextChanged;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label1.Location = new Point(821, 20);
+            label1.Name = "label1";
+            label1.Size = new Size(86, 24);
+            label1.TabIndex = 11;
+            label1.Text = "Студент";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label2.Location = new Point(821, 95);
+            label2.Name = "label2";
+            label2.Size = new Size(106, 24);
+            label2.TabIndex = 12;
+            label2.Text = "Факультет";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
+            label3.Location = new Point(821, 163);
+            label3.Name = "label3";
+            label3.Size = new Size(114, 24);
+            label3.TabIndex = 13;
+            label3.Text = "Вид группы";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1025, 658);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
             Controls.Add(textBox1);
             Controls.Add(button1);
             Controls.Add(comboBox3);
@@ -124,5 +160,9 @@ namespace Diplom_Maksim
         private int button1_Click;
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

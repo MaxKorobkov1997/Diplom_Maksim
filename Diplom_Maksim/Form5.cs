@@ -43,6 +43,7 @@ namespace Diplom_Maksim
                     MessageBox.Show("Вы вошли");
                     Static.user = textBox1.Text;
                     formMainMtnu.label1.Text = Static.user;
+                    formMainMtnu.button5.Text = "Выйти";
                     Close();
                 }
                 else

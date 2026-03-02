@@ -205,7 +205,7 @@
         private Panel panel2;
         private Button button7;
         private Button button6;
-        private Button button5;
+        public Button button5;
         public Label label1;
     }
 }

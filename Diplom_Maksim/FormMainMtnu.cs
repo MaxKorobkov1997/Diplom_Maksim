@@ -90,7 +90,11 @@ namespace Diplom_Maksim
                 OpenChildForm(new Form5(this), sender);
             }
             else
+            {
                 (sender as Button).Text = "Войти";
+                Static.user = "Гость";
+                label1.Text = Static.user;
+            }
         }
     }
 }
