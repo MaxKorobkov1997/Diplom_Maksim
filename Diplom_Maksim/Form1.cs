@@ -1,5 +1,6 @@
 using diplom;
 using diplom.Database_management;
+using diplom.ta_ble;
 using System.Runtime.InteropServices;
 
 namespace Diplom_Maksim
@@ -7,7 +8,7 @@ namespace Diplom_Maksim
     public partial class Form1 : Form
     {
         string path = "documents";
-
+        List<Jurnal> jurnals;
         public Form1()
         {
             FormBorderStyle = FormBorderStyle.None;
@@ -35,8 +36,9 @@ namespace Diplom_Maksim
         {
             try
             {
+                jurnals = otkritie_tb.Otk_jurnal();
                 dataGridView1.Columns.Clear();
-                var tb = otkritie_tb.Otk_jurnal().Select(e => new
+                var tb = jurnals.Select(e => new
                 {
                     e.Id,
                     e.Name,
@@ -124,7 +126,7 @@ namespace Diplom_Maksim
         {
             try
             {
-                int a = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                int a = jurnals[(int)e.RowIndex].Id;
                 if (Static.user != "Гость")
                 {
                     if (((DataGridView)sender).Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
