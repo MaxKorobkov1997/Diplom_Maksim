@@ -44,6 +44,7 @@
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            panel2.BackColor = SystemColors.ButtonFace;
             panel2.Location = new Point(207, 23);
             panel2.Name = "panel2";
             panel2.Size = new Size(1030, 643);
@@ -163,6 +164,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.Blue;
             BorderColor = Color.Black;
             ClientSize = new Size(1238, 654);
             Controls.Add(button7);
