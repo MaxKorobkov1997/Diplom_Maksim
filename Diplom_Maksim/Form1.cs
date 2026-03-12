@@ -1,7 +1,6 @@
 using diplom;
 using diplom.Database_management;
 using diplom.ta_ble;
-using System.Runtime.InteropServices;
 
 namespace Diplom_Maksim
 {
@@ -73,21 +72,21 @@ namespace Diplom_Maksim
         {
             try
             {
-                //comboBox3.Items.Clear();
-                //comboBox1.Items.Clear();
-                //comboBox2.Items.Clear();
                 comboBox1.Font = Static.font;
                 comboBox1.DataSource = otkritie_tb.otk_student();
                 comboBox1.ValueMember = "Id";
                 comboBox1.DisplayMember = "Name";
+                comboBox1.SelectedIndex = 0;
                 comboBox2.Font = Static.font;
                 comboBox2.DataSource = otkritie_tb.otk_faculteet();
                 comboBox2.ValueMember = "Id";
                 comboBox2.DisplayMember = "Fakultets";
+                comboBox2.SelectedIndex = 0;
                 comboBox3.Font = Static.font;
                 comboBox3.DataSource = otkritie_tb.otk_vidgr();
                 comboBox3.ValueMember = "Id";
                 comboBox3.DisplayMember = "vid";
+                comboBox3.SelectedIndex = 0;
             }
             catch (Exception ex)
             {

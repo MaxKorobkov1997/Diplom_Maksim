@@ -1,14 +1,8 @@
 ﻿using diplom;
 using diplom.Database_management;
 using diplom.ta_ble;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Diplom_Maksim
 {
@@ -22,6 +16,7 @@ namespace Diplom_Maksim
 
         [DllImport("user32.dll")]
         private static extern bool SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+
         public Form2()
         {
             InitializeComponent();
@@ -149,8 +144,9 @@ namespace Diplom_Maksim
             textBox2.Font = Static.font;
             textBox3.Font = Static.font;
             button1.Font = Static.font;
+            button2.Font = Static.font;
             dataGridView1.ReadOnly = true;
-            dataGridView1.Font = new Font("Microsoft Sans Serif", 14);
+            dataGridView1.Font = Static.font;
             otkritie();
         }
 
@@ -172,17 +168,6 @@ namespace Diplom_Maksim
                 soclic = Path.GetFileName(openFileDialog.FileName);
                 pathsoclic = openFileDialog.FileName;
             }
-        }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, 0x112, 0xf012, 0);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void button7_Click(object sender, EventArgs e)

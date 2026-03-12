@@ -1,9 +1,11 @@
 ﻿using diplom;
 using System.Runtime.InteropServices;
+using Templates;
 
 namespace Diplom_Maksim
 {
-    public partial class FormMainMtnu : Form
+
+    public partial class FormMainMtnu : BorderLessForm
     {
         [DllImport("user32.dll")]
         private static extern bool ReleaseCapture();
@@ -29,7 +31,6 @@ namespace Diplom_Maksim
             button7.Font = Static.font;
             button6.Text = "X";
             button7.Text = "_";
-            FormBorderStyle = FormBorderStyle.None;
             label1.Text = Static.user;
         }
 

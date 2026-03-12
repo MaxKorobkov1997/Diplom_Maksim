@@ -94,7 +94,7 @@ namespace Diplom_Maksim
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(723, 173);
+            label1.Location = new Point(723, 164);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(58, 15);
@@ -104,7 +104,7 @@ namespace Diplom_Maksim
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(813, 173);
+            label2.Location = new Point(813, 164);
             label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
             label2.Size = new Size(31, 15);
@@ -114,7 +114,7 @@ namespace Diplom_Maksim
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(910, 173);
+            label3.Location = new Point(910, 164);
             label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
             label3.Size = new Size(58, 15);

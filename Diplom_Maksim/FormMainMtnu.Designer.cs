@@ -53,9 +53,9 @@
             panelMenu.Controls.Add(button2);
             panelMenu.Controls.Add(button1);
             panelMenu.Dock = DockStyle.Left;
-            panelMenu.Location = new Point(0, 0);
+            panelMenu.Location = new Point(1, 1);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(200, 667);
+            panelMenu.Size = new Size(200, 665);
             panelMenu.TabIndex = 0;
             // 
             // button5
@@ -143,14 +143,15 @@
             panel1.Controls.Add(button7);
             panel1.Controls.Add(button6);
             panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(200, 0);
+            panel1.Location = new Point(201, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1038, 30);
+            panel1.Size = new Size(1036, 30);
             panel1.TabIndex = 1;
             panel1.MouseDown += panel1_MouseDown;
             // 
             // button7
             // 
+            button7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button7.Location = new Point(948, 2);
             button7.Name = "button7";
             button7.Size = new Size(36, 26);
@@ -161,6 +162,7 @@
             // 
             // button6
             // 
+            button6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button6.Location = new Point(990, 4);
             button6.Name = "button6";
             button6.Size = new Size(36, 23);
@@ -172,9 +174,9 @@
             // panel2
             // 
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(200, 30);
+            panel2.Location = new Point(201, 31);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1038, 637);
+            panel2.Size = new Size(1036, 635);
             panel2.TabIndex = 2;
             // 
             // FormMainMtnu
