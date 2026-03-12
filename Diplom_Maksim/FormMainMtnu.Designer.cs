@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            panel2 = new Panel();
+            button7 = new Button();
+            button6 = new Button();
             panelMenu = new Panel();
             button5 = new Button();
             label1 = new Label();
@@ -35,16 +38,40 @@
             button3 = new Button();
             button2 = new Button();
             button1 = new Button();
-            panel1 = new Panel();
-            button7 = new Button();
-            button6 = new Button();
-            panel2 = new Panel();
             panelMenu.SuspendLayout();
-            panel1.SuspendLayout();
             SuspendLayout();
+            // 
+            // panel2
+            // 
+            panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            panel2.Location = new Point(207, 23);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(1030, 643);
+            panel2.TabIndex = 2;
+            // 
+            // button7
+            // 
+            button7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button7.Location = new Point(1170, 1);
+            button7.Name = "button7";
+            button7.Size = new Size(29, 23);
+            button7.TabIndex = 1;
+            button7.Text = "_";
+            button7.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            button6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            button6.Location = new Point(1205, 1);
+            button6.Name = "button6";
+            button6.Size = new Size(29, 23);
+            button6.TabIndex = 0;
+            button6.Text = "X";
+            button6.UseVisualStyleBackColor = true;
             // 
             // panelMenu
             // 
+            panelMenu.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panelMenu.BackColor = Color.Blue;
             panelMenu.Controls.Add(button5);
             panelMenu.Controls.Add(label1);
@@ -52,10 +79,9 @@
             panelMenu.Controls.Add(button3);
             panelMenu.Controls.Add(button2);
             panelMenu.Controls.Add(button1);
-            panelMenu.Dock = DockStyle.Left;
-            panelMenu.Location = new Point(1, 1);
+            panelMenu.Location = new Point(1, 23);
             panelMenu.Name = "panelMenu";
-            panelMenu.Size = new Size(200, 665);
+            panelMenu.Size = new Size(206, 643);
             panelMenu.TabIndex = 0;
             // 
             // button5
@@ -93,7 +119,6 @@
             button4.TabIndex = 3;
             button4.Text = "Вид Группы";
             button4.UseVisualStyleBackColor = true;
-            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -107,7 +132,6 @@
             button3.TabIndex = 2;
             button3.Text = "Факультет";
             button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -121,7 +145,6 @@
             button2.TabIndex = 1;
             button2.Text = "Студенты";
             button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -135,79 +158,36 @@
             button1.TabIndex = 0;
             button1.Text = "Журнал";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = Color.Blue;
-            panel1.Controls.Add(button7);
-            panel1.Controls.Add(button6);
-            panel1.Dock = DockStyle.Top;
-            panel1.Location = new Point(201, 1);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(1036, 30);
-            panel1.TabIndex = 1;
-            panel1.MouseDown += panel1_MouseDown;
-            // 
-            // button7
-            // 
-            button7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button7.Location = new Point(948, 2);
-            button7.Name = "button7";
-            button7.Size = new Size(36, 26);
-            button7.TabIndex = 5;
-            button7.Text = "button7";
-            button7.UseVisualStyleBackColor = true;
-            button7.Click += button7_Click;
-            // 
-            // button6
-            // 
-            button6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            button6.Location = new Point(990, 4);
-            button6.Name = "button6";
-            button6.Size = new Size(36, 23);
-            button6.TabIndex = 4;
-            button6.Text = "button6";
-            button6.UseVisualStyleBackColor = true;
-            button6.Click += button6_Click;
-            // 
-            // panel2
-            // 
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(201, 31);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(1036, 635);
-            panel2.TabIndex = 2;
             // 
             // FormMainMtnu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1238, 667);
+            BorderColor = Color.Black;
+            ClientSize = new Size(1238, 654);
+            Controls.Add(button7);
             Controls.Add(panel2);
-            Controls.Add(panel1);
+            Controls.Add(button6);
             Controls.Add(panelMenu);
             Name = "FormMainMtnu";
+            SizeGripStyle = SizeGripStyle.Show;
             Text = "FormMainMtnu";
             Load += FormMainMtnu_Load;
             panelMenu.ResumeLayout(false);
             panelMenu.PerformLayout();
-            panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
-
-        private Panel panelMenu;
-        private Button button1;
-        private Button button4;
-        private Button button3;
-        private Button button2;
-        private Panel panel1;
         private Panel panel2;
         private Button button7;
         private Button button6;
+        private Panel panelMenu;
         public Button button5;
         public Label label1;
+        private Button button4;
+        private Button button3;
+        private Button button2;
+        private Button button1;
     }
 }

@@ -10,7 +10,6 @@ namespace Diplom_Maksim
         List<Jurnal> jurnals;
         public Form1()
         {
-            FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
         }
 

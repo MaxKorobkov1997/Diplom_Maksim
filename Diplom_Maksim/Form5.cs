@@ -17,7 +17,6 @@ namespace Diplom_Maksim
 
         public Form5(FormMainMtnu formMainMtnu)
         {
-            FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
             this.formMainMtnu = formMainMtnu;
         }
@@ -27,7 +26,6 @@ namespace Diplom_Maksim
             using (var context = new DBpodkl())
             {
                 int users = context.Users.Count();
-                //MessageBox.Show(users.ToString());
                 if (users == 0) button2.Enabled = true;
                 else button2.Enabled = false;
             }

@@ -20,7 +20,6 @@ namespace Diplom_Maksim
         public Form2()
         {
             InitializeComponent();
-            FormBorderStyle = FormBorderStyle.None;
         }
 
         private void button1_Click(object sender, EventArgs e)

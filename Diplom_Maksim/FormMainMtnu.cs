@@ -27,10 +27,12 @@ namespace Diplom_Maksim
             button3.Font = Static.font;
             button4.Font = Static.font;
             button5.Font = Static.font;
-            button6.Font = Static.font;
-            button7.Font = Static.font;
-            button6.Text = "X";
-            button7.Text = "_";
+            button6.Click += (c, e) => Close();
+            button7.Click += (c, e) => WindowState = FormWindowState.Minimized;
+            button1.Click += (c, e) => OpenChildForm(new Form1(), c);
+            button2.Click += (c, e) => OpenChildForm(new Form2(), c);
+            button3.Click += (c, e) => OpenChildForm(new Form3(), c);
+            button4.Click += (c, e) => OpenChildForm(new Form4(), c);
             label1.Text = Static.user;
         }
 
@@ -42,40 +44,10 @@ namespace Diplom_Maksim
             childForm.TopLevel = false;
             childForm.FormBorderStyle = FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
-            this.panel2.Controls.Add(childForm);
+            panel2.Controls.Add(childForm);
             panel2.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Form1(), sender);
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Form2(), sender);
-        }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Form3(), sender);
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            OpenChildForm(new Form4(), sender);
-        }
-
-        private void button6_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -96,6 +68,11 @@ namespace Diplom_Maksim
                 Static.user = "Гость";
                 label1.Text = Static.user;
             }
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

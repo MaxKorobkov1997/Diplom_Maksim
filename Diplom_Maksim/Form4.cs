@@ -25,7 +25,6 @@ namespace Diplom_Maksim
         public Form4()
         {
             InitializeComponent();
-            FormBorderStyle = FormBorderStyle.None;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

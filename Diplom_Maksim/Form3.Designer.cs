@@ -83,12 +83,14 @@ namespace Diplom_Maksim
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
             ClientSize = new Size(1025, 658);
             Controls.Add(label1);
             Controls.Add(button1);
             Controls.Add(textBox1);
             Controls.Add(dataGridView1);
             Name = "Form3";
+            SizeGripStyle = SizeGripStyle.Show;
             Text = "Form3";
             Load += Form3_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

@@ -9,6 +9,7 @@ using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
+using Templates;
 
 namespace Diplom_Maksim
 {
@@ -25,7 +26,6 @@ namespace Diplom_Maksim
         public Form3()
         {
             InitializeComponent();
-            FormBorderStyle = FormBorderStyle.None;
         }
 
         private void button1_Click(object sender, EventArgs e)
