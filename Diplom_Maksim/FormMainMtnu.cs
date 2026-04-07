@@ -69,10 +69,5 @@ namespace Diplom_Maksim
                 label1.Text = Static.user;
             }
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }
