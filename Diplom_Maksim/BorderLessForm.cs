@@ -105,7 +105,7 @@ namespace Templates
                 if (HeaderBackColor != Color.Transparent)
                 {
                     using (var brush = new SolidBrush(HeaderBackColor))
-                        e.Graphics.FillRectangle(brush, 0, 0, Width, HeaderHeight);
+                        e.Graphics.FillRectangle(brush, 0, 0, Width, 20);
                 }
 
                 if (ShowIcon)
@@ -138,7 +138,7 @@ namespace Templates
         protected override void OnMouseMove(MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
-                if (Moveable && (e.Y < HeaderHeight || MoveOnWholeForm))
+                if (Moveable && (e.Y < 23 || MoveOnWholeForm))// 23 ширина шапки
                 {
                     ReleaseCapture();
                     SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);

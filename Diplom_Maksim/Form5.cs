@@ -23,6 +23,8 @@ namespace Diplom_Maksim
 
         private void Form5_Load(object sender, EventArgs e)
         {
+            FontContol fontContol = new FontContol();
+            fontContol.SetAllControlsFont(Controls);
             using (var context = new DBpodkl())
             {
                 int users = context.Users.Count();

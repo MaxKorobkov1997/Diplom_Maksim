@@ -47,7 +47,7 @@
             panel2.BackColor = SystemColors.ButtonFace;
             panel2.Location = new Point(207, 23);
             panel2.Name = "panel2";
-            panel2.Size = new Size(1030, 643);
+            panel2.Size = new Size(1027, 643);
             panel2.TabIndex = 2;
             // 
             // button7
@@ -55,7 +55,7 @@
             button7.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button7.Location = new Point(1170, 1);
             button7.Name = "button7";
-            button7.Size = new Size(29, 23);
+            button7.Size = new Size(29, 20);
             button7.TabIndex = 1;
             button7.Text = "_";
             button7.UseVisualStyleBackColor = true;
@@ -65,7 +65,7 @@
             button6.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             button6.Location = new Point(1205, 1);
             button6.Name = "button6";
-            button6.Size = new Size(29, 23);
+            button6.Size = new Size(29, 20);
             button6.TabIndex = 0;
             button6.Text = "X";
             button6.UseVisualStyleBackColor = true;
@@ -90,9 +90,9 @@
             button5.FlatAppearance.BorderSize = 0;
             button5.FlatStyle = FlatStyle.Flat;
             button5.ForeColor = SystemColors.ButtonFace;
-            button5.Location = new Point(97, 30);
+            button5.Location = new Point(0, 461);
             button5.Name = "button5";
-            button5.Size = new Size(97, 40);
+            button5.Size = new Size(200, 78);
             button5.TabIndex = 11;
             button5.Text = "Войти";
             button5.UseVisualStyleBackColor = true;
@@ -165,12 +165,12 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Blue;
-            BorderColor = Color.Black;
             ClientSize = new Size(1238, 654);
             Controls.Add(button7);
             Controls.Add(panel2);
             Controls.Add(button6);
             Controls.Add(panelMenu);
+            ForeColor = SystemColors.ControlText;
             Name = "FormMainMtnu";
             SizeGripStyle = SizeGripStyle.Show;
             Text = "FormMainMtnu";

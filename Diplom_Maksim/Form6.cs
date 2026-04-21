@@ -13,7 +13,6 @@ namespace Diplom_Maksim
 {
     public partial class Form6 : Form
     {
-        Font font = new Font("Microsoft Sans Serif", 14);
         int id;
         string[] name;
         string name1, table;
@@ -50,14 +49,12 @@ namespace Diplom_Maksim
                         Name = "label3",
                         Size = new Size(65, 13),
                         TabIndex = 28,
-                        Font = font,
                         Text = "Имя"
                     };
                     textBox1 = new System.Windows.Forms.TextBox
                     {
                         Location = new Point(110, 40),
-                        Text = name[0],
-                        Font = font,
+                        Text = name[0]
                     };
                     Label label2 = new Label
                     {
@@ -67,14 +64,12 @@ namespace Diplom_Maksim
                         Name = "label3",
                         Size = new Size(65, 13),
                         TabIndex = 28,
-                        Font = font,
                         Text = "Фамилия"
                     };
                     textBox2 = new System.Windows.Forms.TextBox
                     {
                         Location = new Point(110, 70),
-                        Text = name[1],
-                        Font = font,
+                        Text = name[1]
                     };
                     Label label3 = new Label
                     {
@@ -84,14 +79,12 @@ namespace Diplom_Maksim
                         Name = "label3",
                         Size = new Size(65, 13),
                         TabIndex = 28,
-                        Font = font,
                         Text = "Отчество"
                     };
                     textBox3 = new System.Windows.Forms.TextBox
                     {
                         Location = new Point(110, 100),
-                        Text = name[2],
-                        Font = font,
+                        Text = name[2]
                     };
                     Controls.Add(label1);
                     Controls.Add(textBox1);
@@ -109,14 +102,12 @@ namespace Diplom_Maksim
                         Name = "label3",
                         Size = new Size(65, 13),
                         TabIndex = 28,
-                        Font = font,
                         Text = "Факультет"
                     };
                     textBox1 = new System.Windows.Forms.TextBox
                     {
                         Location = new Point(110, 40),
-                        Text = name1,
-                        Font = font,
+                        Text = name1
                     };
                     Controls.Add(label4);
                     Controls.Add(textBox1);
@@ -130,14 +121,12 @@ namespace Diplom_Maksim
                         Name = "label3",
                         Size = new Size(65, 13),
                         TabIndex = 28,
-                        Font = font,
                         Text = "Вид группы"
                     };
                     textBox1 = new System.Windows.Forms.TextBox
                     {
                         Location = new Point(110, 40),
-                        Text = name1,
-                        Font = font,
+                        Text = name1
                     };
                     Controls.Add(label5);
                     Controls.Add(textBox1);
@@ -150,6 +139,8 @@ namespace Diplom_Maksim
             };
             Controls.Add(button1);
             button1.Click += Save;
+            FontContol fontContol = new FontContol();
+            fontContol.SetAllControlsFont(Controls);
         }
         private void Save(object sender, EventArgs e)
         {

@@ -15,19 +15,15 @@ namespace Diplom_Maksim
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            FontContol fontContol = new FontContol();
+            fontContol.SetAllControlsFont(Controls);
             dataGridView1.ReadOnly = true;
             if (!Directory.Exists(path))
                 Directory.CreateDirectory(path);
             Combobox();
             otkritie1();
-            dataGridView1.Font = Static.font;
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBox1.Font = Static.font;
-            comboBox2.Font = Static.font;
-            comboBox3.Font = Static.font;
         }
 
         private void otkritie1()

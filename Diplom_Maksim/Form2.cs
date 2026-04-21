@@ -136,16 +136,9 @@ namespace Diplom_Maksim
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            label1.Font = Static.font;
-            label2.Font = Static.font;
-            label3.Font = Static.font;
-            textBox1.Font = Static.font;
-            textBox2.Font = Static.font;
-            textBox3.Font = Static.font;
-            button1.Font = Static.font;
-            button2.Font = Static.font;
+            FontContol fontContol = new FontContol();
+            fontContol.SetAllControlsFont(Controls);
             dataGridView1.ReadOnly = true;
-            dataGridView1.Font = Static.font;
             otkritie();
         }
 
