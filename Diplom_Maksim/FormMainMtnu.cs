@@ -1,5 +1,4 @@
 ﻿using diplom;
-using System.Runtime.InteropServices;
 using Templates;
 
 namespace Diplom_Maksim
@@ -7,12 +6,6 @@ namespace Diplom_Maksim
 
     public partial class FormMainMtnu : BorderLessForm
     {
-        [DllImport("user32.dll")]
-        private static extern bool ReleaseCapture();
-
-        [DllImport("user32.dll")]
-        private static extern bool SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-
         private Form activeForm;
         public FormMainMtnu()
         {
@@ -48,12 +41,6 @@ namespace Diplom_Maksim
             panel2.Tag = childForm;
             childForm.BringToFront();
             childForm.Show();
-        }
-
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(Handle, 0x112, 0xf012, 0);
         }
 
         private void button5_Click(object sender, EventArgs e)

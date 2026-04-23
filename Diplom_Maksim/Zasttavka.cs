@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using Diplom_Maksim.Properties;
+using System.Collections;
 using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+using System.Globalization;
 
 namespace Diplom_Maksim
 {
@@ -13,6 +10,17 @@ namespace Diplom_Maksim
         public Zasttavka()
         {
             InitializeComponent();
+            var images = Resources.ResourceManager
+    .GetResourceSet(CultureInfo.CurrentCulture, true, true)
+    .Cast<DictionaryEntry>()
+    .Where(x => x.Value.GetType() == typeof(Bitmap))
+    .Select(x => new { Name = x.Key.ToString(), Image = (Bitmap)x.Value })
+    .ToList();
+
+            // Получаем случайное изображение
+            var rnd = new Random().Next(images.Count);
+            var image = images[rnd].Image;
+            pictureBox1.Image = image;
             timer1.Start();
         }
 
