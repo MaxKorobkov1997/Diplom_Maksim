@@ -49,7 +49,7 @@ namespace Diplom_Maksim
             // 
             dataGridView1.BackgroundColor = SystemColors.ControlLightLight;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 47);
+            dataGridView1.Location = new Point(12, 12);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.Size = new Size(786, 416);
             dataGridView1.TabIndex = 0;
@@ -58,7 +58,7 @@ namespace Diplom_Maksim
             // comboBox1
             // 
             comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(821, 47);
+            comboBox1.Location = new Point(804, 40);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(192, 23);
             comboBox1.TabIndex = 2;
@@ -66,7 +66,7 @@ namespace Diplom_Maksim
             // comboBox2
             // 
             comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(821, 121);
+            comboBox2.Location = new Point(804, 114);
             comboBox2.Name = "comboBox2";
             comboBox2.Size = new Size(192, 23);
             comboBox2.TabIndex = 3;
@@ -74,14 +74,14 @@ namespace Diplom_Maksim
             // comboBox3
             // 
             comboBox3.FormattingEnabled = true;
-            comboBox3.Location = new Point(821, 189);
+            comboBox3.Location = new Point(804, 182);
             comboBox3.Name = "comboBox3";
             comboBox3.Size = new Size(192, 23);
             comboBox3.TabIndex = 4;
             // 
             // button1
             // 
-            button1.Location = new Point(821, 216);
+            button1.Location = new Point(804, 209);
             button1.Name = "button1";
             button1.Size = new Size(192, 63);
             button1.TabIndex = 5;
@@ -91,7 +91,7 @@ namespace Diplom_Maksim
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(12, 492);
+            textBox1.Location = new Point(12, 434);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(957, 99);
@@ -102,7 +102,7 @@ namespace Diplom_Maksim
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label1.Location = new Point(821, 20);
+            label1.Location = new Point(804, 13);
             label1.Name = "label1";
             label1.Size = new Size(86, 24);
             label1.TabIndex = 11;
@@ -112,7 +112,7 @@ namespace Diplom_Maksim
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label2.Location = new Point(821, 95);
+            label2.Location = new Point(804, 88);
             label2.Name = "label2";
             label2.Size = new Size(106, 24);
             label2.TabIndex = 12;
@@ -122,7 +122,7 @@ namespace Diplom_Maksim
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            label3.Location = new Point(821, 163);
+            label3.Location = new Point(804, 156);
             label3.Name = "label3";
             label3.Size = new Size(114, 24);
             label3.TabIndex = 13;
@@ -132,7 +132,7 @@ namespace Diplom_Maksim
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1025, 658);
+            ClientSize = new Size(1025, 542);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);

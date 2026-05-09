@@ -24,6 +24,7 @@ namespace Diplom_Maksim
             otkritie1();
             comboBox1.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBox2.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBox3.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void otkritie1()
