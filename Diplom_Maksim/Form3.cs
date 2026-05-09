@@ -134,6 +134,7 @@ namespace Diplom_Maksim
             // Отписываемся от события
             Form6 secondForm = (Form6)sender;
             secondForm.FormClosed -= SecondForm6_FormClosed;
+            otkritie();
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)

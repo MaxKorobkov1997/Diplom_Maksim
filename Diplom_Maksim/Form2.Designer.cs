@@ -82,7 +82,7 @@ namespace Diplom_Maksim
             // 
             // button1
             // 
-            button1.Location = new Point(726, 405);
+            button1.Location = new Point(723, 404);
             button1.Margin = new Padding(2);
             button1.Name = "button1";
             button1.Size = new Size(264, 54);

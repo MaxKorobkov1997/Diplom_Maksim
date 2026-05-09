@@ -1,11 +1,4 @@
-﻿using diplom.ta_ble;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace diplom.Database_management
+﻿namespace diplom.Database_management
 {
     public static class Redactirov
     {
@@ -13,11 +6,18 @@ namespace diplom.Database_management
         {
             try
             {
+                
                 using (DBpodkl context = new DBpodkl())
                 {
                     var users = context.Students.Where(o => o.Id == id).FirstOrDefault();
                     users.Name = name;
+                    bool a = true;
                     context.SaveChanges();
+                    var jur_user = context.Jurnals.Where(o => o.Id_Neme == id).ToList();
+                    foreach (var user in jur_user)
+                        user.VidGr = name;
+                    context.SaveChanges();
+
                 }
                 return true;
             }
@@ -31,10 +31,15 @@ namespace diplom.Database_management
         {
             try
             {
+                bool a = true;
                 using (DBpodkl context = new DBpodkl())
                 {
                     var users = context.Fakultets.Where(o => o.Id == id).FirstOrDefault();
                     users.Fakultets = name;
+                    context.SaveChanges();
+                    var jur_user = context.Jurnals.Where(o => o.Id_Fakultet == id).ToList();
+                    foreach (var user in jur_user)
+                        user.VidGr = name;
                     context.SaveChanges();
                 }
                 return true;
@@ -52,8 +57,15 @@ namespace diplom.Database_management
                 using (DBpodkl context = new DBpodkl())
                 {
                     var users = context.Vids.Where(o => o.Id == id).FirstOrDefault();
+                    if (users != null)
                     users.vid = name;
                     context.SaveChanges();
+                    var jur_user = context.Jurnals.Where(o => o.Id_VidGr == id).ToList();
+                    foreach (var user in jur_user)
+                        user.VidGr = name;
+                    context.SaveChanges();
+                    
+                    
                 }
                 return true;
             }

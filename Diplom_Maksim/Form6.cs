@@ -1,22 +1,12 @@
 ﻿using diplom.Database_management;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Runtime.Intrinsics.Arm;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Diplom_Maksim
 {
     public partial class Form6 : Form
     {
         int id;
-        string[] name;
         string name1, table;
-        TextBox textBox1, textBox2, textBox3;
 
         [DllImport("user32.dll")]
         private static extern bool ReleaseCapture();
@@ -30,115 +20,20 @@ namespace Diplom_Maksim
             id = id1;
             name1 = name2;
             table = tab;
+            
             InitializeComponent();
         }
 
         private void Form6_Load(object sender, EventArgs e)
         {
             button6.Text = "X";
-            button7.Text = "_"; 
-            switch (table)
-            {
-                case "Student":
-                    name = name1.Split();
-                    Label label1 = new Label
-                    {
-                        AutoSize = true,
-                        Location = new Point(10, 40),
-                        Margin = new Padding(2, 0, 2, 0),
-                        Name = "label3",
-                        Size = new Size(65, 13),
-                        TabIndex = 28,
-                        Text = "Имя"
-                    };
-                    textBox1 = new System.Windows.Forms.TextBox
-                    {
-                        Location = new Point(110, 40),
-                        Text = name[0]
-                    };
-                    Label label2 = new Label
-                    {
-                        AutoSize = true,
-                        Location = new Point(10, 70),
-                        Margin = new Padding(2, 0, 2, 0),
-                        Name = "label3",
-                        Size = new Size(65, 13),
-                        TabIndex = 28,
-                        Text = "Фамилия"
-                    };
-                    textBox2 = new System.Windows.Forms.TextBox
-                    {
-                        Location = new Point(110, 70),
-                        Text = name[1]
-                    };
-                    Label label3 = new Label
-                    {
-                        AutoSize = true,
-                        Location = new Point(10, 100),
-                        Margin = new Padding(2, 0, 2, 0),
-                        Name = "label3",
-                        Size = new Size(65, 13),
-                        TabIndex = 28,
-                        Text = "Отчество"
-                    };
-                    textBox3 = new System.Windows.Forms.TextBox
-                    {
-                        Location = new Point(110, 100),
-                        Text = name[2]
-                    };
-                    Controls.Add(label1);
-                    Controls.Add(textBox1);
-                    Controls.Add(textBox2);
-                    Controls.Add(label2);
-                    Controls.Add(textBox3);
-                    Controls.Add(label3);
-                    break;
-                case "Fakultet":
-                    Label label4 = new Label
-                    {
-                        AutoSize = true,
-                        Location = new Point(10, 40),
-                        Margin = new Padding(2, 0, 2, 0),
-                        Name = "label3",
-                        Size = new Size(65, 13),
-                        TabIndex = 28,
-                        Text = "Факультет"
-                    };
-                    textBox1 = new System.Windows.Forms.TextBox
-                    {
-                        Location = new Point(110, 40),
-                        Text = name1
-                    };
-                    Controls.Add(label4);
-                    Controls.Add(textBox1);
-                    break;
-                case "Vid_Gr":
-                    Label label5 = new Label
-                    {
-                        AutoSize = true,
-                        Location = new Point(10, 40),
-                        Margin = new Padding(2, 0, 2, 0),
-                        Name = "label3",
-                        Size = new Size(65, 13),
-                        TabIndex = 28,
-                        Text = "Вид группы"
-                    };
-                    textBox1 = new System.Windows.Forms.TextBox
-                    {
-                        Location = new Point(110, 40),
-                        Text = name1
-                    };
-                    Controls.Add(label5);
-                    Controls.Add(textBox1);
-                    break;
-            }
-            System.Windows.Forms.Button button1 = new System.Windows.Forms.Button
-            {
-                Location = new Point(90, 130),
-                Text = "Сохранить изменения",
-            };
-            Controls.Add(button1);
-            button1.Click += Save;
+            if (table == "Student")
+                label1.Text = "Фио";
+            else if (table == "Fakultet")
+                label1.Text = "Факультеn";
+            else if (table == "Vid_Gr")
+                label1.Text = "Вид группы";
+            textBox4.Text = name1;
             FontContol fontContol = new FontContol();
             fontContol.SetAllControlsFont(Controls);
         }
@@ -146,15 +41,14 @@ namespace Diplom_Maksim
         {
             switch (table)
             {
-                case "Student":
-                    string fio = textBox1.Text + " " + textBox2.Text + " " + textBox3.Text;
-                    Redactirov.relact_Student(id, fio);
+                case "Student": 
+                    Redactirov.relact_Student(id, textBox4.Text);
                     break;
                 case "Fakultet":
-                    Redactirov.relact_Fakultet(id, textBox1.Text);
+                    Redactirov.relact_Fakultet(id, textBox4.Text);
                     break;
                 case "Vid_Gr":
-                    Redactirov.relact_Vid_Gr(id, textBox1.Text);
+                    Redactirov.relact_Vid_Gr(id, textBox4.Text);
                     break;
             }
             Close();
@@ -169,11 +63,6 @@ namespace Diplom_Maksim
         private void button6_Click(object sender, EventArgs e)
         {
             Close();
-        }
-
-        private void button7_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
         }
     }
 }

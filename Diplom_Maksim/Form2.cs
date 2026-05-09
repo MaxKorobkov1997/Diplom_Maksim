@@ -31,8 +31,8 @@ namespace Diplom_Maksim
                 {
                     if (add_bd.Add_student(path, pasp, soclic))
                     {
-                        if (!Directory.Exists(path))
-                            Directory.CreateDirectory(path);
+                        if (!Directory.Exists("documents" + "/" + path))
+                            Directory.CreateDirectory("documents" + "/" + path);
                         try
                         {
                             File.Copy(pathpasp, "documents" + "/" + path + "/" + pasp);
@@ -80,38 +80,49 @@ namespace Diplom_Maksim
             try
             {
                 int id1 = e.RowIndex;
-                string id = student[id1].Id.ToString();
-                int a = Convert.ToInt32(id);
-                if (Static.user != "Гость")
+                int name = Convert.ToInt32(student[id1].Id.ToString());
+                if (Static.user == "Гость")
                 {
                     if (((DataGridView)sender).Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
                     {
 
-                        if (MessageBox.Show("Удалить эту строку " + a, "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                        if (MessageBox.Show("Удалить эту строку " + name, "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                             DialogResult.Yes)
                         {
-                            Delit.Delit_student(a);
-                            if (MessageBox.Show("Удалить эту строку " + a + " в таблице журнал", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
+                            string student = Delit.Delit_student(name);
+                            if (MessageBox.Show("Удалить эту строку " + name + " в таблице журнал", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                         DialogResult.Yes)
                                 while (true)
                                 {
                                     using (var context = new DBpodkl())
                                     {
-                                        var users1 = context.Jurnals.Where(o => o.Id_Neme == a).FirstOrDefault();
+                                        var users1 = context.Jurnals.Where(o => o.Id_Neme == name).FirstOrDefault();
                                         if (users1 == null)
                                             break;
-                                        Delit.Delit_jurnal(users1.Id);
+                                            Delit.Delit_jurnal(users1.Id);
                                     }
                                 }
+                            string dirName = @$"{Directory.GetCurrentDirectory()}\documents\{student}";
+                            DirectoryInfo dirInfo = new DirectoryInfo(dirName);
+
+                            if (dirInfo.Exists)
+                            {
+                                dirInfo.Delete(true);
+                                MessageBox.Show("Каталог удалён");
+                            }
+                            else
+                            {
+                                MessageBox.Show("Каталог не существует");
+                            }
                         }
                     }
                     else
                     {
-                        string name = student[id1].Name.ToString();
+                        string name_st = student[id1].Name.ToString();
                         Enabled = false;
-                        if (name != null)
+                        if (name_st != null)
                         {
-                            Form6 f = new Form6(a, name, "Student");
+                            Form6 f = new Form6(name, name_st, "Student");
                             f.FormClosed += SecondForm6_FormClosed;
                             f.Show();
                         }
@@ -132,6 +143,7 @@ namespace Diplom_Maksim
             // Отписываемся от события
             Form6 secondForm = (Form6)sender;
             secondForm.FormClosed -= SecondForm6_FormClosed;
+            otkritie();
         }
 
         private void Form2_Load(object sender, EventArgs e)

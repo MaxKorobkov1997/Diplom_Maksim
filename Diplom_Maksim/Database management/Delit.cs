@@ -1,6 +1,4 @@
-﻿using System.Linq;
-
-namespace diplom.Database_management
+﻿namespace diplom.Database_management
 {
     internal static class Delit
     {
@@ -17,17 +15,20 @@ namespace diplom.Database_management
             }
         }
 
-        public static void Delit_student(int a)
+        public static string Delit_student(int a)
         {
+            string student = "";
             using (var context = new DBpodkl())
             {
                 var users = context.Students.Where(o => o.Id == a).FirstOrDefault();
                 if (users != null)
                 {
+                    student = users.Name;
                     context.Students.Remove(users);
                     context.SaveChanges();
                 }
             }
+            return student;
         }
 
         public static void Delit_faculteet(int a)

@@ -65,7 +65,7 @@ namespace Diplom_Maksim
                         Enabled = false;
                         if (name != null)
                         {
-                            Form6 f = new Form6(a, name, "Fakultet");
+                            Form6 f = new Form6(a, name, "Vid_Gr");
                             f.FormClosed += SecondForm6_FormClosed;
                             f.Show();
                         }
@@ -87,6 +87,7 @@ namespace Diplom_Maksim
             // Отписываемся от события
             Form6 secondForm = (Form6)sender;
             secondForm.FormClosed -= SecondForm6_FormClosed;
+            otkritie() ;
         }
 
         private void Form4_Load(object sender, EventArgs e)
