@@ -1,5 +1,4 @@
 ﻿using diplom;
-using diplom.Database_management;
 using diplom.ta_ble;
 using System.Data;
 using System.Runtime.InteropServices;
@@ -10,6 +9,8 @@ namespace Diplom_Maksim
     {
         string pathpasp, pathsoclic, pasp, soclic;
         List<Student> student;
+
+        Menegement_Student Student_bd;
 
         [DllImport("user32.dll")]
         private static extern bool ReleaseCapture();
@@ -29,7 +30,7 @@ namespace Diplom_Maksim
             {
                 if (Static.user != "Гость")
                 {
-                    if (add_bd.Add_student(path, pasp, soclic))
+                    if (Student_bd.Add_student(path, pasp, soclic))
                     {
                         if (!Directory.Exists("documents" + "/" + path))
                             Directory.CreateDirectory("documents" + "/" + path);
@@ -42,7 +43,6 @@ namespace Diplom_Maksim
                         catch { }
                         otkritie();
                     }
-
                 }
                 else
                     MessageBox.Show("Пожалуйста войдите в акаунт");
@@ -57,7 +57,7 @@ namespace Diplom_Maksim
         {
             try
             {
-                student = otkritie_tb.otk_student();
+                student = Student_bd.otk_student();
                 dataGridView1.Columns.Clear();
                 dataGridView1.DataSource = student;
                 DataGridViewButtonColumn newColumn = new DataGridViewButtonColumn();
@@ -89,19 +89,10 @@ namespace Diplom_Maksim
                         if (MessageBox.Show("Удалить эту строку " + name, "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                             DialogResult.Yes)
                         {
-                            string student = Delit.Delit_student(name);
+                            string student = Student_bd.Delit_student(name);
                             if (MessageBox.Show("Удалить эту строку " + name + " в таблице журнал", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                         DialogResult.Yes)
-                                while (true)
-                                {
-                                    using (var context = new DBpodkl())
-                                    {
-                                        var users1 = context.Jurnals.Where(o => o.Id_Neme == name).FirstOrDefault();
-                                        if (users1 == null)
-                                            break;
-                                            Delit.Delit_jurnal(users1.Id);
-                                    }
-                                }
+                                Student_bd.Delit_jurnal(name);
                             string dirName = @$"{Directory.GetCurrentDirectory()}\documents\{student}";
                             DirectoryInfo dirInfo = new DirectoryInfo(dirName);
 
@@ -148,6 +139,7 @@ namespace Diplom_Maksim
 
         private void Form2_Load(object sender, EventArgs e)
         {
+            Student_bd = new Menegement_Student();
             FontContol fontContol = new FontContol();
             fontContol.SetAllControlsFont(Controls);
             dataGridView1.ReadOnly = true;

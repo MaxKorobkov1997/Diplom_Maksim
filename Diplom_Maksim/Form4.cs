@@ -1,14 +1,7 @@
 ﻿using diplom;
-using diplom.Database_management;
 using diplom.ta_ble;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+using Diplom_Maksim.Database_management;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Windows.Forms;
 
 namespace Diplom_Maksim
 {
@@ -21,6 +14,8 @@ namespace Diplom_Maksim
         private static extern bool SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         List<Vid> vids;
+
+        Menegement_Vidgr menegement_Vidgr;
 
         public Form4()
         {
@@ -42,20 +37,10 @@ namespace Diplom_Maksim
                         if (MessageBox.Show("Удалить эту строку " + a, "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                             DialogResult.Yes)
                         {
-                            Delit.Delit_vidgr(a);
+                            menegement_Vidgr.Delit_vidgr(a);
                             if (MessageBox.Show("Удалить эту строку " + a + " в таблице журнал", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                         DialogResult.Yes)
-                                while (true)
-                                {
-                                    using (var context = new DBpodkl())
-                                    {
-                                        var users1 = context.Jurnals.Where(o => o.Id_VidGr == a).FirstOrDefault();
-                                        if (users1 == null)
-                                            break;
-                                        Delit.Delit_jurnal(users1.Id);
-                                    }
-                                }
-
+                                menegement_Vidgr.Delit_jurnal(a);
                         }
 
                     }
@@ -92,6 +77,7 @@ namespace Diplom_Maksim
 
         private void Form4_Load(object sender, EventArgs e)
         {
+            menegement_Vidgr = new Menegement_Vidgr();
             FontContol fontContol = new FontContol();
             fontContol.SetAllControlsFont(Controls);
             dataGridView1.ReadOnly = true;
@@ -102,7 +88,7 @@ namespace Diplom_Maksim
         {
             try
             {
-                vids = otkritie_tb.otk_vidgr();
+                vids = menegement_Vidgr.otk_vidgr();
                 dataGridView1.Columns.Clear();
                 dataGridView1.DataSource = vids;
                 DataGridViewButtonColumn newColumn = new DataGridViewButtonColumn();
@@ -126,7 +112,7 @@ namespace Diplom_Maksim
             {
                 if (Static.user != "Гость")
                 {
-                    add_bd.Add_vid(textBox1.Text);
+                    menegement_Vidgr.Add_vid(textBox1.Text);
                     otkritie();
                 }
                 else

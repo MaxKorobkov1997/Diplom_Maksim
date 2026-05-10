@@ -1,6 +1,6 @@
 using diplom;
-using diplom.Database_management;
 using diplom.ta_ble;
+using Diplom_Maksim.Database_management;
 
 namespace Diplom_Maksim
 {
@@ -8,13 +8,14 @@ namespace Diplom_Maksim
     {
         string path = "documents";
         List<Jurnal> jurnals;
+        Menegement_Jurnal menegement_Jurnal;
         public Form1()
         {
             InitializeComponent();
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
+            menegement_Jurnal = new Menegement_Jurnal();
             FontContol fontContol = new FontContol();
             fontContol.SetAllControlsFont(Controls);
             dataGridView1.ReadOnly = true;
@@ -31,7 +32,7 @@ namespace Diplom_Maksim
         {
             try
             {
-                jurnals = otkritie_tb.Otk_jurnal();
+                jurnals = menegement_Jurnal.Otk_jurnal();
                 dataGridView1.Columns.Clear();
                 var tb = jurnals.Select(e => new
                 {
@@ -69,17 +70,17 @@ namespace Diplom_Maksim
             try
             {
                 comboBox1.Font = Static.font;
-                comboBox1.DataSource = otkritie_tb.otk_student();
+                comboBox1.DataSource = menegement_Jurnal.otk_student();
                 comboBox1.ValueMember = "Id";
                 comboBox1.DisplayMember = "Name";
                 comboBox1.SelectedIndex = 0;
                 comboBox2.Font = Static.font;
-                comboBox2.DataSource = otkritie_tb.otk_faculteet();
+                comboBox2.DataSource = menegement_Jurnal.otk_faculteet();
                 comboBox2.ValueMember = "Id";
                 comboBox2.DisplayMember = "Fakultets";
                 comboBox2.SelectedIndex = 0;
                 comboBox3.Font = Static.font;
-                comboBox3.DataSource = otkritie_tb.otk_vidgr();
+                comboBox3.DataSource = menegement_Jurnal.otk_vidgr();
                 comboBox3.ValueMember = "Id";
                 comboBox3.DisplayMember = "vid";
                 comboBox3.SelectedIndex = 0;
@@ -104,7 +105,7 @@ namespace Diplom_Maksim
                         MessageBox.Show("Выберите социальную группу");
                     else
                     {
-                        add_bd.Add_jurnal(comboBox1.Text, (int)comboBox1.SelectedValue, comboBox2.Text, (int)comboBox2.SelectedValue, comboBox3.Text, (int)comboBox3.SelectedValue);
+                        menegement_Jurnal.Add_jurnal(comboBox1.Text, (int)comboBox1.SelectedValue, comboBox2.Text, (int)comboBox2.SelectedValue, comboBox3.Text, (int)comboBox3.SelectedValue);
                         otkritie1();
                     }
                 }
@@ -129,7 +130,7 @@ namespace Diplom_Maksim
 
                         if (MessageBox.Show("Удалить эту строку " + a, "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                             DialogResult.Yes)
-                            Delit.Delit_jurnal(a);
+                            menegement_Jurnal.Delit_jurnal(a);
                     }
                     otkritie1();
                 }

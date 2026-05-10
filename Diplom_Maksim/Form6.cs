@@ -1,4 +1,4 @@
-﻿using diplom.Database_management;
+﻿using Diplom_Maksim.Database_management;
 using System.Runtime.InteropServices;
 
 namespace Diplom_Maksim
@@ -41,14 +41,14 @@ namespace Diplom_Maksim
         {
             switch (table)
             {
-                case "Student": 
-                    Redactirov.relact_Student(id, textBox4.Text);
+                case "Student":
+                    new Menegement_Student().relact_Student(id, textBox4.Text);
                     break;
                 case "Fakultet":
-                    Redactirov.relact_Fakultet(id, textBox4.Text);
+                    new Menegement_Fakultet().relact_Fakultet(id, textBox4.Text);
                     break;
                 case "Vid_Gr":
-                    Redactirov.relact_Vid_Gr(id, textBox4.Text);
+                    new Menegement_Vidgr().relact_Vid_Gr(id, textBox4.Text);
                     break;
             }
             Close();

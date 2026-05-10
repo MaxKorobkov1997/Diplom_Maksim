@@ -1,15 +1,8 @@
 ﻿using diplom;
-using diplom.Database_management;
 using diplom.ta_ble;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+using Diplom_Maksim.Database_management;
 using System.Data;
-using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Windows.Forms;
-using Templates;
 
 namespace Diplom_Maksim
 {
@@ -22,6 +15,7 @@ namespace Diplom_Maksim
         private static extern bool SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 
         List<Fakultet> fakultets;
+        Menegement_Fakultet menegement_Fakultet;
 
         public Form3()
         {
@@ -34,7 +28,7 @@ namespace Diplom_Maksim
             {
                 if (Static.user != "Гость")
                 {
-                    add_bd.Add_fakultet(textBox1.Text);
+                    menegement_Fakultet.Add_fakultet(textBox1.Text);
                     otkritie();
                 }
                 else
@@ -48,6 +42,7 @@ namespace Diplom_Maksim
 
         private void Form3_Load(object sender, EventArgs e)
         {
+            menegement_Fakultet = new Menegement_Fakultet();
             FontContol fontContol = new FontContol();
             fontContol.SetAllControlsFont(Controls);
             dataGridView1.ReadOnly = true;
@@ -58,7 +53,7 @@ namespace Diplom_Maksim
         {
             try
             {
-                fakultets = otkritie_tb.otk_faculteet();
+                fakultets = menegement_Fakultet.otk_faculteet();
                 dataGridView1.Columns.Clear();
                 dataGridView1.DataSource =fakultets;
                 DataGridViewButtonColumn newColumn = new DataGridViewButtonColumn();
@@ -89,20 +84,11 @@ namespace Diplom_Maksim
                         if (MessageBox.Show("Удалить эту строку " + a, "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                             DialogResult.Yes)
                         {
-                            Delit.Delit_faculteet(a);
+                            menegement_Fakultet.Delit_faculteet(a);
                             if (MessageBox.Show("Удалить эту строку " + a + " в таблице журнал", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==
                         DialogResult.Yes)
                             {
-                                while (true)
-                                {
-                                    using (DBpodkl context = new DBpodkl())
-                                    {
-                                        Jurnal users1 = context.Jurnals.Where(o => o.Id_Fakultet == a).FirstOrDefault();
-                                        if (users1 == null)
-                                            break;
-                                        Delit.Delit_jurnal(users1.Id);
-                                    }
-                                }
+                                menegement_Fakultet.Delit_jurnal(a);
                             }
                         }
                     }
